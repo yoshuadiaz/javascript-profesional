@@ -9,3 +9,9 @@ const Player = new MediaPlayer({ el: video, pluggins: [new AutoPlay, new AutoPau
 
 togglePlay.onclick = () => Player.togglePlay()
 toggleMute.onclick = () => Player.toggleMute()
+
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(error => {
+    console.log(error.message)
+  })
+}
